@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import "./App.css";
+import "./Counter";
+import Counter from "./Counter";
 
 function App() {
   function handleClick() {
@@ -19,8 +21,9 @@ function App() {
   return (
     <>
       <h3>Vite + React</h3>
+      <Counter></Counter>
       {/* <button onClick="handleClick()">Click Me</button> */}
-      <button onClick={handleClick}>Click Me</button>
+      {/* <button onClick={handleClick}>Click Me</button>
       <button
         onClick={function handleClick2() {
           alert("Click 2");
@@ -29,8 +32,8 @@ function App() {
         Click Me2
       </button>
       <button onClick={handleClick3}>Click 3</button>
-      <button onClick={() => alert("Click 4")}>Click 4</button>
-      <button onClick={handleClick5(7)}>Click add 5</button>
+      <button onClick={() => alert("Click 4")}>Click 4</button> */}
+      {/* <button onClick={handleClick5(7)}>Click add 5</button> */}
     </>
   );
 }
