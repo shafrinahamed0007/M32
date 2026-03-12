@@ -7,15 +7,25 @@ import Batsman from "./Batsman";
 import Bowler from "./Bowler";
 import User from "./User";
 import Friends from "./Friends";
+import Posts from "./Posts";
+import Todos from "./Todos";
 
 const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users").then(
   (res) => res.json(),
 );
 
 const fetchFriends = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
   return res.json();
 };
+
+const allPosts = fetch("https://jsonplaceholder.typicode.com/posts").then(
+  (res) => res.json(),
+);
+
+const fetchTodos = fetch("https://jsonplaceholder.typicode.com/todos").then(
+  (res) => res.json(),
+);
 
 function App() {
   const friendsPromise = fetchFriends();
@@ -35,11 +45,18 @@ function App() {
   return (
     <>
       <h3>Vite + React</h3>
+      <Suspense fallback={<h3>Todos Loading...</h3>}>
+        <Todos fetchTodos={fetchTodos}></Todos>
+      </Suspense>
       <Suspense fallback={<h3>Loading...</h3>}>
         <User fetchUsers={fetchUsers}></User>
       </Suspense>
       <Suspense fallback={<h3>Friends Loading...</h3>}>
         <Friends friendsPromise={friendsPromise}></Friends>
+      </Suspense>
+
+      <Suspense fallback={<h3>Posts Loading...</h3>}>
+        <Posts allPosts={allPosts}></Posts>
       </Suspense>
 
       <Counter></Counter>
