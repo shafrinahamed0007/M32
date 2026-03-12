@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 import "./App.css";
-import "./Counter";
-import Counter from "./Counter";
 
+import Counter from "./Counter";
+import Batsman from "./Batsman";
+import Bowler from "./Bowler";
 function App() {
   function handleClick() {
     alert("I am clicked");
@@ -22,6 +23,9 @@ function App() {
     <>
       <h3>Vite + React</h3>
       <Counter></Counter>
+      <Batsman></Batsman>
+      <Bowler></Bowler>
+      {/* <Batsman></Batsman> */}
       {/* <button onClick="handleClick()">Click Me</button> */}
       {/* <button onClick={handleClick}>Click Me</button>
       <button
